@@ -1,0 +1,7 @@
+.container{
+    top: 5rem;
+    position: relative;
+}
+.cards-cont img{
+    object-fit: cover;
+}
