@@ -12,7 +12,6 @@ const Header = ({ onSearch }) => {
             setSuggestions([]);
             return;
         }
-
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
             const data = await response.json();
@@ -38,7 +37,7 @@ const Header = ({ onSearch }) => {
         clearTimeout(debounceTimeout); 
         setDebounceTimeout(setTimeout(() => {
             fetchSuggestions(term);
-        }, 300));
+        }, 150));
     };
 
     const handleSuggestionClick = (pokemon) => {

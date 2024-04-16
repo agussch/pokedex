@@ -1,6 +1,16 @@
 .container{
     top: 5rem;
     position: relative;
+    background: #fff url(../../../public/img/backpoke2.png);
+    width: 85%;
+    height: 100%;
+    margin: auto;
+}
+.container-card-gen{
+    background-color: #fff;
+    width: 75%;
+    display: flex;
+    margin: auto;
 }
 .cards-cont img{
     object-fit: cover;
