@@ -12,6 +12,106 @@
     display: flex;
     margin: auto;
 }
+.cards-cont{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+}
 .cards-cont img{
     object-fit: cover;
+}
+.pokemon-card{
+    justify-content: center;
+    width: 200px;
+}
+.pokemon-card img{
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    width: 100%;
+}
+.cont-pokecard{
+    width: 85%;
+    margin: auto;
+}
+.cont-pokecard h2{
+    text-transform: capitalize;
+}
+.poke-id{
+    color: grey;
+
+}
+.pokecard-type{
+    text-transform: capitalize;
+    gap: 5px;
+    display: flex;
+}
+
+/*----------colores type------------- */
+.type-fire span{
+    background-color: #9bcc50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;}
+
+.type-water span{
+    background-color: #9bcc50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+
+.pokecard-type span.type-grass {
+    background-color: #9bcc50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+.type-bug span{
+    background-color: #9bcc50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+.pokecard-type span.type-poison {
+    background-color: #b97fc9 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: white;
+}
+.type-normal span{
+    background-color: #9bcc50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+.type-flying span{
+    background-color: #9bcc50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+
+/*------------------------------------*/
+.pagination{
+    display: flex;
+    width: 75%;
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+}
+.pag-cont{
+    display: flex;
+    margin: auto;
 }
