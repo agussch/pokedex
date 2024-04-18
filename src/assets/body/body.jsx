@@ -54,7 +54,6 @@ const Body = ({ onPokemonSelect }) => {
                 <div className="cards-cont">
                     {pokemonList.length > 0 ? (
                         pokemonList.map((pokemon, index) => {
-                            // Generar una clase de tipo basada en todos los tipos de un Pokémon
                             const typeClasses = pokemon.types.map((typeInfo) => `type-${typeInfo.type.name}`).join(' ');
 
                             return (

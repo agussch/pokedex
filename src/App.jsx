@@ -7,7 +7,6 @@ const App = () => {
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [error, setError] = useState(null);
 
-    // Función para manejar la búsqueda de un Pokémon
     const handleSearch = async (searchTerm) => {
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`);
@@ -23,7 +22,6 @@ const App = () => {
         }
     };
 
-    // Función para manejar la selección de un Pokémon en Body
     const handlePokemonSelect = (pokemon) => {
         setSelectedPokemon(pokemon);
     };
