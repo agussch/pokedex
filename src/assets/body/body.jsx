@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './body.css';
+import { useState, useEffect } from 'react';
 
-const Body = () => {
+
+const Body = ({ onPokemonSelect }) => {
     const [pokemonList, setPokemonList] = useState([]);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const pokemonsPerPage = 20;
+    const pokemonsPerPage = 16;
 
     useEffect(() => {
         const fetchPokemonList = async () => {
@@ -35,7 +37,7 @@ const Body = () => {
     }, [currentPage]);
 
     const goToNextPage = () => {
-        if (currentPage < 52) {
+        if (currentPage < 64) {
             setCurrentPage((prevPage) => prevPage + 1);
         }
     };
@@ -56,7 +58,7 @@ const Body = () => {
                             const typeClasses = pokemon.types.map((typeInfo) => `type-${typeInfo.type.name}`).join(' ');
 
                             return (
-                                <div key={index} className={`pokemon-card ${typeClasses}`}>
+                                <div key={index} className={`pokemon-card ${typeClasses}`} onClick={() => onPokemonSelect(pokemon)}>
                                     {pokemon.sprites && pokemon.sprites.front_default ? (
                                         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
                                     ) : (
@@ -88,7 +90,7 @@ const Body = () => {
                         </button>
                     )}
                     <span>Página {currentPage}</span>
-                    {currentPage < 52 && (
+                    {currentPage < 64 && (
                         <button onClick={goToNextPage}>
                             Siguiente
                         </button>
