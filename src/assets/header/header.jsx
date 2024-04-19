@@ -49,7 +49,13 @@ const Header = ({ onSearch }) => {
 
     return (
         <header>
+            <div className="search-logo">
+                <a href="/">
+                    <h3>Agustin.dev</h3>
+                </a>
+            </div>
             <div className="search">
+                
                 <div className="cont-search">
                     <div className="search-bar">
                         <input

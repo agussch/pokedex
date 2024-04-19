@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './assets/header/header';
 import Body from './assets/body/body';
 import Card from './assets/card/card';
+import Footer from './assets/footer/footer';
 
 const App = () => {
     const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -35,6 +36,7 @@ const App = () => {
                 <Body onPokemonSelect={handlePokemonSelect} />
             )}
             {error && <p>{error}</p>}
+            <Footer/>
         </div>
     );
 };

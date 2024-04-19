@@ -92,7 +92,7 @@ const Body = ({ onPokemonSelect }) => {
                     {currentPage < 64 && (
                         <button onClick={goToNextPage}>
                             Siguiente
-                        </button>
+                        </button> 
                     )}
                 </div>
             </div>

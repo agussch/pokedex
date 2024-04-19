@@ -1,0 +1,100 @@
+footer{
+    background-color: #ebedf3;;
+    padding: 2.5rem 0;
+    width: 100%;
+    position: relative;
+    top: 5rem;
+    gap: 2rem;
+}
+.top-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+footer h3{
+    width: 30%;
+    font-size: 1.1rem;
+    color: #2d2e32;
+}
+.footer-icons .icons{
+    gap: 20%;
+    display: flex;
+}
+.git img{
+    width: 40px;
+}
+.linkedin img{
+    width: 40px;
+}
+@media (max-width: 900px) {
+    footer{
+        gap: 18%;
+    }
+}
+.contact-cont{
+    width: 30%;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+.contact-tittle p {
+    color: #147efb;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.contact-tittle h3 {
+    color: #2d2e32;
+    font-size: 1.7rem;
+} 
+.contact-icons{
+    flex-direction: row;
+    display: flex;
+}
+.contact-icons span {
+    align-items: center;
+    /* background-color: #fff; */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    color: #147efb;
+    display: flex;
+    height: 3.7rem;
+    justify-content: center;
+    width: 3.7rem;
+}
+.box-icons{
+    /* width: 40%; */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.contact-info h3 {
+    color: #2d2e32;
+    font-size: 1.2rem;
+}
+.contact-info a, .contact-info p {
+    color: #767676;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.contact-info a:hover, .contact-info p:hover {
+    color:#147efb;
+}
+@media (max-width: 900px) {
+    .contact-cont{
+        width: 85%;
+    }
+    .contact-tittle h3{
+        width: 90%;
+    }
+    .box-icons{
+        width: 100%;
+        gap: 0.5rem;
+    }
+    .contact-icons span{
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+}
