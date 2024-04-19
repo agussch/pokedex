@@ -64,7 +64,7 @@ const Card = ({ pokemon }) => {
     return (
         <div className='card-jsx'>
             <h3>{name}</h3>
-            <img src={sprites?.front_default} alt={name} />
+            <img src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
             <p>Peso: {weight} kg</p>
             <p>Altura: {height} m</p>
             <p>Sexo: {species?.gender_rate === -1 ? 'Desconocido' : 'Femenino/Masculino'}</p>

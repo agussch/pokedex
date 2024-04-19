@@ -1,13 +1,14 @@
 import React from 'react';
 import './body.css';
+import "../root/colores-type.css";
 import { useState, useEffect } from 'react';
-
 
 const Body = ({ onPokemonSelect }) => {
     const [pokemonList, setPokemonList] = useState([]);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const pokemonsPerPage = 16;
+    const totalPages = 64;
 
     useEffect(() => {
         const fetchPokemonList = async () => {
@@ -36,16 +37,31 @@ const Body = ({ onPokemonSelect }) => {
         fetchPokemonList();
     }, [currentPage]);
 
-    const goToNextPage = () => {
-        if (currentPage < 64) {
-            setCurrentPage((prevPage) => prevPage + 1);
-        }
+    const goToPage = (page) => {
+        setCurrentPage(page);
+        // Desplázate a la parte superior de la página
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Utiliza un desplazamiento suave
+        });
     };
 
-    const goToPreviousPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage((prevPage) => prevPage - 1);
+    const calculatePageRange = () => {
+        const totalPagesToShow = 5;
+        const offset = Math.floor(totalPagesToShow / 2);
+
+        let startPage = currentPage - offset;
+        let endPage = currentPage + offset;
+
+        if (startPage < 1) {
+            startPage = 1;
+            endPage = Math.min(startPage + totalPagesToShow - 1, totalPages);
+        } else if (endPage > totalPages) {
+            endPage = totalPages;
+            startPage = Math.max(endPage - totalPagesToShow + 1, 1);
         }
+
+        return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
     };
 
     return (
@@ -58,19 +74,21 @@ const Body = ({ onPokemonSelect }) => {
 
                             return (
                                 <div key={index} className={`pokemon-card ${typeClasses}`} onClick={() => onPokemonSelect(pokemon)}>
-                                    {pokemon.sprites && pokemon.sprites.front_default ? (
-                                        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                                    {pokemon.sprites && pokemon.sprites.other && pokemon.sprites.other['official-artwork']?.front_default ? (
+                                        <img src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
                                     ) : (
                                         <p>No image available</p>
                                     )}
                                     <div className="cont-pokecard">
                                         <p className="poke-id">N.° {pokemon.id.toString().padStart(4, '0')}</p>
                                         <h2>{pokemon.name}</h2>
-                                        <p className="pokecard-type">{pokemon.types.map((typeInfo, idx) => (
-                                            <span key={idx} className={`type-${typeInfo.type.name}`}>
-                                                {typeInfo.type.name}{idx < pokemon.types.length - 1 ? ' ' : ''}
-                                            </span>
-                                        ))}</p>
+                                        <p className="pokecard-type">
+                                            {pokemon.types.map((typeInfo, idx) => (
+                                                <span key={idx} className={`type-${typeInfo.type.name}`}>
+                                                    {typeInfo.type.name}{idx < pokemon.types.length - 1 ? ' ' : ''}
+                                                </span>
+                                            ))}
+                                        </p>
                                     </div>
                                 </div>
                             );
@@ -81,21 +99,36 @@ const Body = ({ onPokemonSelect }) => {
                     {error && <p>{error}</p>}
                 </div>
             </div>
+
             <div className="pagination">
-                <div className="pag-cont">
+                <div className="pagination-cont">
                     {currentPage > 1 && (
-                        <button onClick={goToPreviousPage}>
-                            Anterior
+                        <button className='btn-ant' onClick={() => goToPage(currentPage - 1)}>
+                            <span class="material-symbols-outlined">
+                                arrow_back_ios
+                            </span>
                         </button>
                     )}
-                    <span>Página {currentPage}</span>
-                    {currentPage < 64 && (
-                        <button onClick={goToNextPage}>
-                            Siguiente
-                        </button> 
+
+                    {calculatePageRange().map((page) => (
+                        <button
+                            key={page}
+                            onClick={() => goToPage(page)}
+                            className={page === currentPage ? 'active' : ''}
+                        >
+                            {page}
+                        </button>
+                    ))}
+
+                    {currentPage < totalPages && (
+                        <button className='btn-sig' onClick={() => goToPage(currentPage + 1)}>
+                            <span class="material-symbols-outlined">
+                                arrow_forward_ios
+                            </span>
+                        </button>
                     )}
                 </div>
-            </div>
+            </div>    
         </section>
     );
 };
