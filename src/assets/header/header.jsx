@@ -81,7 +81,7 @@ const Header = ({ onSearch }) => {
                     )}
                 </div>
                 <span className="logoapi">
-                    <img src="../public/img/pokeapilogo.png" alt="PokeAPI logo" />
+                    <a href='https://pokeapi.co'><img src="../public/img/pokeapilogo.png" alt="PokeAPI logo" /></a>
                 </span>
             </div>
         </header>

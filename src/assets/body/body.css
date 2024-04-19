@@ -34,7 +34,7 @@
     cursor: pointer;
 }
 .pokemon-card:hover{
-    transform: translateY(-0.8rem);
+    transform: translateY(-0.6rem);
 }
 .pokemon-card img{
     background-color: #F2F2F2;

@@ -39,10 +39,9 @@ const Body = ({ onPokemonSelect }) => {
 
     const goToPage = (page) => {
         setCurrentPage(page);
-        // Desplázate a la parte superior de la página
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Utiliza un desplazamiento suave
+            behavior: 'smooth'
         });
     };
 
@@ -104,7 +103,7 @@ const Body = ({ onPokemonSelect }) => {
                 <div className="pagination-cont">
                     {currentPage > 1 && (
                         <button className='btn-ant' onClick={() => goToPage(currentPage - 1)}>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 arrow_back_ios
                             </span>
                         </button>
@@ -122,7 +121,7 @@ const Body = ({ onPokemonSelect }) => {
 
                     {currentPage < totalPages && (
                         <button className='btn-sig' onClick={() => goToPage(currentPage + 1)}>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 arrow_forward_ios
                             </span>
                         </button>
