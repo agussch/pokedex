@@ -1,5 +1,115 @@
 .card-jsx{
-    background-color: aqua;
+    /* background-color: aqua; */
     top: 5rem;
     position: relative;
+    display: flex;
+    margin: auto;
+    width: 85%;
+    background-image: url(../../../public/img/backpoke2.png);
+    background-color: #fff;
+    text-transform: capitalize;
+}
+.cont-card-gen{
+    width: 75%;
+    display: flex;
+    background-color: #fff;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+.tittle-cont{
+    display: flex;
+    margin: auto;
+    gap: 1rem;
+    align-items: center;
+}
+.details-cont{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.img-peso-cont{
+    display: flex;
+    margin: auto;
+    width: 97%;
+    gap: 1rem;
+    
+}
+.img-cont{
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+.img-cont img{
+    width: 90%;
+}
+.description-cont{
+    padding: 1rem;
+}
+.peso-cont{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+.peso{
+    background-color: #30a7d7;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+}
+.bot-flex p{
+    color: #e2e0e0;
+}
+.peso .column1 img{
+    width: 30px;
+}
+.column1{
+    width: 50%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+.column1 .bot-flex{
+    display: flex;
+    flex-direction: column;
+}
+/* .bot-flex p{
+    color: black;
+} */
+.column2{
+    width: 50%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+.cont-dot-graphs{
+    display: flex;
+}
+.types-cont{
+    display: flex;
+    flex-direction: row;
+}
+.types-cont ul{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.weaknesses{
+    display: flex;
+}
+.weaknesses ul{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.evolution-chain li{
+    display: flex;
+    flex-direction: row;
+}
+.evolution-chain li img{
+    width: 150px;
 }
