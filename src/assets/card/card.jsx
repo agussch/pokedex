@@ -5,49 +5,42 @@ import Chart from 'chart.js/auto';
 
 const Card = ({ pokemon }) => {
     const { name } = useParams();
-
-    // Estados para la cadena de evolución, las imágenes de evolución, los IDs de los Pokémon y la descripción
     const [evolutionChain, setEvolutionChain] = useState(null);
     const [evolutionImages, setEvolutionImages] = useState({});
     const [evolutionIds, setEvolutionIds] = useState({});
-    const [description, setDescription] = useState(''); // Estado para almacenar la descripción en español
-    const [pokemonGender, setPokemonGender] = useState(null); // Estado para almacenar el género del Pokémon
-    const [chartRef, setChartRef] = useState(null); // Estado para almacenar la referencia del canvas del gráfico
+    const [description, setDescription] = useState('');
+    const [pokemonGender, setPokemonGender] = useState(null); 
+    const [chartRef, setChartRef] = useState(null); 
+    
 
-    // Efecto para obtener la cadena de evolución, las imágenes, los IDs de cada Pokémon, la descripción y el género cuando el Pokémon cambia
     useEffect(() => {
         const fetchData = async () => {
             if (!pokemon) return;
 
             try {
-                // Obtén la URL de la especie del Pokémon
                 const speciesUrl = pokemon.species.url;
                 const speciesResponse = await fetch(speciesUrl);
                 const speciesData = await speciesResponse.json();
 
-                // Obtén la descripción en español
                 const descriptionEntry = speciesData.flavor_text_entries.find(
                     entry => entry.language.name === 'es'
                 );
                 const description = descriptionEntry ? descriptionEntry.flavor_text : 'Sin descripción en español';
 
-                // Almacena la descripción en español en el estado
                 setDescription(description);
 
-                // Obtén la información del género
                 const genderResponse = await fetch(`https://pokeapi.co/api/v2/gender/${speciesData.gender_rate}/`);
                 const genderData = await genderResponse.json();
                 setPokemonGender(genderData);
 
-                // Obtén la URL de la cadena de evolución
                 const evolutionUrl = speciesData.evolution_chain.url;
                 const evolutionResponse = await fetch(evolutionUrl);
                 const evolutionData = await evolutionResponse.json();
 
-                // Almacena la cadena de evolución en el estado
+                console.log("Evolution Data:", evolutionData); // Debugging
+
                 setEvolutionChain(evolutionData.chain);
 
-                // Obtén las imágenes y los IDs de los Pokémon en la cadena de evolución
                 const fetchEvolutionImagesAndIds = async (chain) => {
                     let images = {};
                     let ids = {};
@@ -63,6 +56,7 @@ const Card = ({ pokemon }) => {
                         const { image, id } = await fetchPokemonData(node.species.name);
                         images[node.species.name] = image;
                         ids[node.species.name] = id;
+                        console.log("Processing:", node.species.name, id); // Debugging
                         for (const childNode of node.evolves_to) {
                             await processChain(childNode);
                         }
@@ -72,6 +66,8 @@ const Card = ({ pokemon }) => {
                 };
 
                 const { images, ids } = await fetchEvolutionImagesAndIds(evolutionData.chain);
+                console.log("Evolution Images:", images); // Debugging
+                console.log("Evolution IDs:", ids); // Debugging
                 setEvolutionImages(images);
                 setEvolutionIds(ids);
             } catch (error) {
@@ -82,49 +78,96 @@ const Card = ({ pokemon }) => {
         fetchData();
     }, [pokemon]);
 
-    // Efecto para crear el gráfico cuando el componente se monta o cuando cambia el Pokémon
     useEffect(() => {
-        // Verifica si hay una referencia de gráfico
         if (!chartRef) return;
-
-        // Verifica si hay un Pokémon
+    
         if (!pokemon) return;
-
-        // Obtiene las estadísticas base del Pokémon
-        const { hp, attack, defense, specialAttack, specialDefense, speed } = pokemon.stats.reduce((acc, stat) => {
-            acc[stat.stat.name] = stat.base_stat;
-            return acc;
-        }, {});
-
-        // Configuración de los datos del gráfico
+    
+        const baseStats = {
+            hp: 'Desconocido',
+            attack: 'Desconocido',
+            defense: 'Desconocido',
+            specialAttack: 'Desconocido',
+            specialDefense: 'Desconocido',
+            speed: 'Desconocido',
+        };
+    
+        pokemon.stats.forEach(stat => {
+            switch (stat.stat.name) {
+                case 'hp':
+                    baseStats.hp = stat.base_stat;
+                    break;
+                case 'attack':
+                    baseStats.attack = stat.base_stat;
+                    break;
+                case 'defense':
+                    baseStats.defense = stat.base_stat;
+                    break;
+                case 'special-attack':
+                    baseStats.specialAttack = stat.base_stat;
+                    break;
+                case 'special-defense':
+                    baseStats.specialDefense = stat.base_stat;
+                    break;
+                case 'speed':
+                    baseStats.speed = stat.base_stat;
+                    break;
+                default:
+                    break;
+            }
+        });
+    
         const data = {
             labels: ['PS', 'Ataque', 'Defensa', 'Ataque especial', 'Defensa especial', 'Velocidad'],
             datasets: [{
                 label: 'Puntos Base',
-                data: [hp, attack, defense, specialAttack, specialDefense, speed],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                data: [
+                    baseStats.hp,
+                    baseStats.attack,
+                    baseStats.defense,
+                    baseStats.specialAttack,
+                    baseStats.specialDefense,
+                    baseStats.speed
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)', // PS
+                    'rgba(54, 162, 235, 0.2)',  // Ataque
+                    'rgba(255, 206, 86, 0.2)',  // Defensa
+                    'rgba(75, 192, 192, 0.2)',  // Ataque especial
+                    'rgba(153, 102, 255, 0.2)', // Defensa especial
+                    'rgba(255, 159, 64, 0.2)'   // Velocidad
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',    // Borde PS
+                    'rgba(54, 162, 235, 1)',    // Borde Ataque
+                    'rgba(255, 206, 86, 1)',    // Borde Defensa
+                    'rgba(75, 192, 192, 1)',    // Borde Ataque especial
+                    'rgba(153, 102, 255, 1)',   // Borde Defensa especial
+                    'rgba(255, 159, 64, 1)'     // Borde Velocidad
+                ],
                 borderWidth: 1
             }]
         };
-
-        // Configuración de las opciones del gráfico
+    
         const options = {
             scales: {
                 y: {
                     beginAtZero: true
                 }
-            }
+            },
+            x: {
+                ticks: {
+                    color: 'red', 
+                },
+            },
         };
-
-        // Crea el gráfico
+    
         const myChart = new Chart(chartRef, {
             type: 'bar',
             data: data,
             options: options
         });
-
-        // Devuelve una función de limpieza para eliminar el gráfico cuando el componente se desmonte o cuando cambie el Pokémon
+    
         return () => {
             myChart.destroy();
         };

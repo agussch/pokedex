@@ -77,17 +77,16 @@
     display: flex;
     flex-direction: column;
 }
-/* .bot-flex p{
-    color: black;
-} */
 .column2{
     width: 50%;
     display: flex;
     gap: 5px;
     flex-direction: column;
 }
-.cont-dot-graphs{
+.cont-dot-graphs {
+    margin: auto;
     display: flex;
+    width: 80%;
 }
 .types-cont{
     display: flex;
