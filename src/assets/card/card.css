@@ -1,5 +1,4 @@
 .card-jsx{
-    /* background-color: aqua; */
     top: 5rem;
     position: relative;
     display: flex;
@@ -23,6 +22,15 @@
     margin: auto;
     gap: 1rem;
     align-items: center;
+    position: relative;
+    top: 1rem;
+}
+.tittle-cont h3{
+    font-size: 20pt;
+}
+.tittle-cont p{
+    font-size: 15pt;
+    color: #616161;
 }
 .details-cont{
     display: flex;
@@ -47,18 +55,19 @@
     width: 90%;
 }
 .description-cont{
-    padding: 1rem;
+    padding: 1rem 0 1rem 0;
 }
 .peso-cont{
     display: flex;
     flex-direction: column;
     width: 50%;
     margin: auto;
+    gap: 0.5rem;
 }
 .peso{
     background-color: #30a7d7;
     border-radius: 5px;
-    padding: 1rem;
+    padding: 1rem 2rem;
     display: flex;
 }
 .bot-flex p{
@@ -68,7 +77,7 @@
     width: 30px;
 }
 .column1{
-    width: 50%;
+    width: 55%;
     display: flex;
     gap: 5px;
     flex-direction: column;
@@ -90,12 +99,19 @@
 }
 .types-cont{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 1rem;
 }
 .types-cont ul{
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+.types-cont .pokecard-type span{
+    width: 105px;
+    max-width: 110px;
+    padding: 0.5rem;
+    font-size: 12pt;
 }
 .weaknesses{
     display: flex;

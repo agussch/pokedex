@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './card.css';
 import "../root/colores-type.css"
-import { useParams } from 'react-router-dom';
+import { useParams , Link} from 'react-router-dom';
 import Chart from 'chart.js/auto';
 
 const Card = ({ pokemon }) => {
@@ -12,6 +12,8 @@ const Card = ({ pokemon }) => {
     const [description, setDescription] = useState('');
     const [pokemonGender, setPokemonGender] = useState(null);
     const [chartRef, setChartRef] = useState(null);
+    
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -223,7 +225,7 @@ const Card = ({ pokemon }) => {
             <div className="cont-card-gen">
                 <div className="tittle-cont">
                     <h3>{pokemon.name}</h3>
-                    <p>id: {pokemon.id}</p>
+                    <p>N.° {pokemon.id.toString().padStart(4, '0')}</p>
                 </div>
                 <div className="details-cont">
                     <div className="img-peso-cont">
@@ -237,8 +239,8 @@ const Card = ({ pokemon }) => {
 
                             <div className="peso">
                                 <div className="column1">
-                                    <div className='bot-flex'><p>Peso:</p> <span>{weight} kg</span></div>
-                                    <div className='bot-flex'><p>Altura:</p> <span>{height} m</span></div>
+                                    <div className='bot-flex'><p>Peso:</p> <span>{(weight / 10).toFixed(1)} kg</span></div>
+                                    <div className='bot-flex'><p>Altura:</p> <span>{(height / 10).toFixed(1)} m</span></div>
                                     <div className='bot-flex'>
                                         <p>Género:</p>
                                         <span>
