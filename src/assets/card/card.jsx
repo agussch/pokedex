@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './card.css';
+import "../root/colores-type.css"
 import { useParams } from 'react-router-dom';
 import Chart from 'chart.js/auto';
 
@@ -9,9 +10,8 @@ const Card = ({ pokemon }) => {
     const [evolutionImages, setEvolutionImages] = useState({});
     const [evolutionIds, setEvolutionIds] = useState({});
     const [description, setDescription] = useState('');
-    const [pokemonGender, setPokemonGender] = useState(null); 
-    const [chartRef, setChartRef] = useState(null); 
-    
+    const [pokemonGender, setPokemonGender] = useState(null);
+    const [chartRef, setChartRef] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,10 +28,6 @@ const Card = ({ pokemon }) => {
                 const description = descriptionEntry ? descriptionEntry.flavor_text : 'Sin descripción en español';
 
                 setDescription(description);
-
-                const genderResponse = await fetch(`https://pokeapi.co/api/v2/gender/${speciesData.gender_rate}/`);
-                const genderData = await genderResponse.json();
-                setPokemonGender(genderData);
 
                 const evolutionUrl = speciesData.evolution_chain.url;
                 const evolutionResponse = await fetch(evolutionUrl);
@@ -80,9 +76,9 @@ const Card = ({ pokemon }) => {
 
     useEffect(() => {
         if (!chartRef) return;
-    
+
         if (!pokemon) return;
-    
+
         const baseStats = {
             hp: 'Desconocido',
             attack: 'Desconocido',
@@ -91,7 +87,7 @@ const Card = ({ pokemon }) => {
             specialDefense: 'Desconocido',
             speed: 'Desconocido',
         };
-    
+
         pokemon.stats.forEach(stat => {
             switch (stat.stat.name) {
                 case 'hp':
@@ -116,7 +112,7 @@ const Card = ({ pokemon }) => {
                     break;
             }
         });
-    
+
         const data = {
             labels: ['PS', 'Ataque', 'Defensa', 'Ataque especial', 'Defensa especial', 'Velocidad'],
             datasets: [{
@@ -148,7 +144,7 @@ const Card = ({ pokemon }) => {
                 borderWidth: 1
             }]
         };
-    
+
         const options = {
             scales: {
                 y: {
@@ -157,17 +153,17 @@ const Card = ({ pokemon }) => {
             },
             x: {
                 ticks: {
-                    color: 'red', 
+                    color: 'red',
                 },
             },
         };
-    
+
         const myChart = new Chart(chartRef, {
             type: 'bar',
             data: data,
             options: options
         });
-    
+
         return () => {
             myChart.destroy();
         };
@@ -232,13 +228,13 @@ const Card = ({ pokemon }) => {
                 <div className="details-cont">
                     <div className="img-peso-cont">
                         <div className="img-cont">
-                            <img src={pokemon.sprites.other['official-artwork'].front_default} alt={pokemon.name} />
+                            <img src={sprites.other['official-artwork'].front_default} alt={pokemon.name} />
                         </div>
                         <div className="peso-cont">
                             <div className="description-cont">
                                 <p>{description}</p>
                             </div>
-                            
+
                             <div className="peso">
                                 <div className="column1">
                                     <div className='bot-flex'><p>Peso:</p> <span>{weight} kg</span></div>
@@ -256,20 +252,22 @@ const Card = ({ pokemon }) => {
                                     <div className='bot-flex'><p>Categoría:</p> <span>{category}</span></div>
                                 </div>
                             </div>
-                            
+                            <div className="types-cont">
+                                <p>Tipos:</p>
+                                <p className="pokecard-type">
+                                        {pokemon.types.map((typeInfo, idx) => (
+                                        <span key={idx} className={`type-${typeInfo.type.name}`}>
+                                            {typeInfo.type.name}{idx < pokemon.types.length - 1 ? ' ' : ''}
+                                        </span>
+                                    ))}
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className="cont-dot-graphs">
                         <canvas ref={setChartRef}></canvas>
                     </div>
-                    <div className="types-cont">
-                        <p>Tipos:</p>
-                        <ul>
-                            {types?.map((typeInfo, idx) => (
-                                <li key={idx}>{typeInfo.type.name}</li>
-                            ))}
-                        </ul>
-                    </div>
+                    
                     <div className="weaknesses">
                         <p>Debilidades:</p>
                         <ul>
@@ -294,8 +292,8 @@ const Card = ({ pokemon }) => {
     function renderEvolutionChain(chain) {
         const renderChain = (node) => {
             return (
-                <div className="evolution-chain">
-                    <li key={node.species.name}>
+                <div className="evolution-chain" key={node.species.name}>
+                    <li>
                         <img src={evolutionImages[node.species.name]} alt={node.species.name} />
                         {node.species.name} ID: {evolutionIds[node.species.name]}
                         {node.evolves_to.length > 0 && (
@@ -309,6 +307,6 @@ const Card = ({ pokemon }) => {
         };
         return renderChain(chain);
     }
-};
+};    
 
 export default Card;

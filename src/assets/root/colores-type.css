@@ -262,3 +262,16 @@
     display: flex;
     justify-content: center;
 }
+
+
+.types-cont ul li[type="bug"] {
+    background: linear-gradient(180deg, #A8B820 50%, #A8B820 50%);
+    background-color: #A8B820;
+    /* Otros estilos */
+}
+
+.types-cont ul li[type="dark"] {
+    background: linear-gradient(180deg, #705848 50%, #705848 50%);
+    background-color: #705848;
+    /* Otros estilos */
+}
