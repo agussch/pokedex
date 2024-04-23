@@ -10,7 +10,7 @@ const Card = ({ pokemon }) => {
     const [evolutionImages, setEvolutionImages] = useState({});
     const [evolutionIds, setEvolutionIds] = useState({});
     const [description, setDescription] = useState('');
-    const [pokemonGender, setPokemonGender] = useState(null);
+    // const [pokemonGender, setPokemonGender] = useState(null);
     const [chartRef, setChartRef] = useState(null);
     
     
@@ -155,7 +155,7 @@ const Card = ({ pokemon }) => {
             },
             x: {
                 ticks: {
-                    color: 'red',
+                    color: 'green',
                 },
             },
         };
@@ -272,19 +272,24 @@ const Card = ({ pokemon }) => {
                     
                     <div className="weaknesses">
                         <p>Debilidades:</p>
-                        <ul>
+                        <div className='pokecard-type'>
                             {weaknesses?.map((weakness, idx) => (
-                                <li key={idx}>{weakness}</li>
+                                <span key={idx} className={`type-${weakness}`}>
+                                    {weakness}
+                                </span>
                             ))}
-                        </ul>
+                        </div>
                     </div>
-                    <div>
+                    <div className='chain-evolution'>
                         <p>Cadena de evolución:</p>
-                        {evolutionChain && (
-                            <ul>
-                                {renderEvolutionChain(evolutionChain)}
-                            </ul>
-                        )}
+                        <div className="back-evo">
+                            {evolutionChain && (
+                                <ul>
+                                    {renderEvolutionChain(evolutionChain)}
+                                </ul>
+                            )}
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -295,20 +300,28 @@ const Card = ({ pokemon }) => {
         const renderChain = (node) => {
             return (
                 <div className="evolution-chain" key={node.species.name}>
-                    <li>
-                        <img src={evolutionImages[node.species.name]} alt={node.species.name} />
-                        {node.species.name} ID: {evolutionIds[node.species.name]}
-                        {node.evolves_to.length > 0 && (
+                    <div className='mid-evo'>
+                        <div className="img-evolution">
+                            <img src={evolutionImages[node.species.name]} alt={node.species.name} />
+                        </div>
+                        <div className="evolution-info">
+                            <h4>{node.species.name} </h4>
+                            {evolutionIds[node.species.name] ? (
+                                <p className='evo-id'>N.°{evolutionIds[node.species.name].toString().padStart(4, '0')}</p>
+                            ) : (
+                                <p>No hay ID de evolución disponible para este Pokémon</p>
+                            )}                      
+                        </div>
+                    </div>
+                    {node.evolves_to.length > 0 && (
                             <ul>
                                 {node.evolves_to.map(childNode => renderChain(childNode))}
                             </ul>
                         )}
-                    </li>
                 </div>
             );
         };
         return renderChain(chain);
     }
 };    
-
 export default Card;

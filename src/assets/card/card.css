@@ -36,6 +36,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
+    gap: 1.5rem;
 }
 .img-peso-cont{
     display: flex;
@@ -55,7 +56,10 @@
     width: 90%;
 }
 .description-cont{
-    padding: 1rem 0 1rem 0;
+    padding: 1rem 0 0.7rem 0;
+}
+.description-cont p{
+    font-size: 13.5pt;
 }
 .peso-cont{
     display: flex;
@@ -95,7 +99,7 @@
 .cont-dot-graphs {
     margin: auto;
     display: flex;
-    width: 80%;
+    width: 90%;
 }
 .types-cont{
     display: flex;
@@ -113,18 +117,65 @@
     padding: 0.5rem;
     font-size: 12pt;
 }
-.weaknesses{
+.weaknesses {
     display: flex;
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.weaknesses .pokecard-type span{
+    width: 120px;
+    max-width: 130px;
+    padding: 0.5rem;
+    font-size: 12pt;
 }
 .weaknesses ul{
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
-.evolution-chain li{
+.evolution-chain{
     display: flex;
-    flex-direction: row;
+    gap: 5.9rem;
+    margin: auto;
 }
-.evolution-chain li img{
+.img-evolution{
+    border-radius: 50%;
+    border: 3px #fff solid;
+    padding: 1rem;
+}
+.img-evolution img{
     width: 150px;
+}
+.chain-evolution{
+    display: flex; 
+    flex-direction: column; 
+    margin: auto;
+    width: 90%;
+    gap: 1rem;
+    padding: 0rem 0rem 2rem 0rem;
+}
+.chain-evolution ul{
+    display: flex;
+    margin: auto;
+}
+.back-evo{
+    background: transparent url(../../../public/img/backpoke3.png);
+    border-radius: 7px;
+    padding: 1.7rem 0 1.7rem 0;
+}
+.evolution-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    top: 5px;
+    position: relative;
+}
+.evolution-info h4{
+    font-size: 12pt;
+    color: #fff;
+}
+.evo-id{
+    color: #a4acaf;
 }

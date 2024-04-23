@@ -13,7 +13,7 @@ const Header = ({ onSearch }) => {
             return;
         }
         try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=11000`);
             const data = await response.json();
 
             if (response.ok) {
@@ -62,12 +62,12 @@ const Header = ({ onSearch }) => {
                             type="text"
                             value={searchTerm}
                             onChange={handleSearchChange}
-                            placeholder="Search Pokemon"
+                            placeholder="Buscar Pokémon"
                             className="search-input"
                             onFocus={() => setShowSuggestions(true)}
                         />
                         <button onClick={() => onSearch(searchTerm)} className="search-btn">
-                            Search
+                            Buscar
                         </button>
                     </div>
                     {showSuggestions && suggestions.length > 0 && (
