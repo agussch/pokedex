@@ -1,3 +1,21 @@
+.back{
+    background-color: #dad3d3;
+    border-radius: 50%;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10px;
+    left: 10px;
+}
+.back span{
+    display: flex;
+}
+.back a{
+    color: black;
+}
 .card-jsx{
     top: 5rem;
     position: relative;
@@ -41,7 +59,7 @@
 .img-peso-cont{
     display: flex;
     margin: auto;
-    width: 97%;
+    width: 92%;
     gap: 1rem;
     
 }
@@ -50,7 +68,7 @@
     border-radius: 10px;
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 48%;
 }
 .img-cont img{
     width: 90%;
@@ -64,7 +82,7 @@
 .peso-cont{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 48%;
     margin: auto;
     gap: 0.5rem;
 }
@@ -91,7 +109,7 @@
     flex-direction: column;
 }
 .column2{
-    width: 50%;
+    width: 45%;
     display: flex;
     gap: 5px;
     flex-direction: column;
@@ -124,6 +142,9 @@
     flex-direction: column;
     gap: 0.8rem;
 }
+.weaknesses p{
+    font-size: 16.5pt;
+}
 .weaknesses .pokecard-type span{
     width: 120px;
     max-width: 130px;
@@ -137,8 +158,8 @@
 }
 .evolution-chain{
     display: flex;
-    gap: 5.9rem;
-    margin: auto;
+    gap: 2rem;
+    /* margin: auto; */
 }
 .img-evolution{
     border-radius: 50%;
@@ -156,14 +177,21 @@
     gap: 1rem;
     padding: 0rem 0rem 2rem 0rem;
 }
+.chain-evolution p{
+    font-size: 16.5pt;
+}
 .chain-evolution ul{
     display: flex;
     margin: auto;
+    justify-content: center;
+    padding: 0px 0px 0px 10px;
 }
-.back-evo{
-    background: transparent url(../../../public/img/backpoke3.png);
+.back-evo {
+    background: transparent url(/public/img/backpoke3.png);
     border-radius: 7px;
     padding: 1.7rem 0 1.7rem 0;
+    height: auto;
+    /* width: 90%; */
 }
 .evolution-info{
     display: flex;
@@ -179,3 +207,56 @@
 .evo-id{
     color: #a4acaf;
 }
+.mid-evo {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+ul.evo-ul {
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+/*---------------btn top----------*/
+#scrollToTopBtn {
+    display: none;
+    z-index: 10;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #a4acaf;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: opacity 1s ease-in-out;
+    animation: appear 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+#scrollToTopBtn:hover {
+    background-color: #898a8a;
+}
+#scrollToTopBtn.show {
+    display: block;
+}
+#scrollToTopBtn.hide {
+    opacity: 0;
+}
+#top{
+    position: relative;
+    top: -100px;
+}
+html {
+    scroll-behavior: smooth;
+}
+@keyframes appear {
+    0% {
+        transform: scale(0);
+        opacity: 0; 
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+

@@ -10,11 +10,8 @@ const Card = ({ pokemon }) => {
     const [evolutionImages, setEvolutionImages] = useState({});
     const [evolutionIds, setEvolutionIds] = useState({});
     const [description, setDescription] = useState('');
-    // const [pokemonGender, setPokemonGender] = useState(null);
     const [chartRef, setChartRef] = useState(null);
     
-    
-
     useEffect(() => {
         const fetchData = async () => {
             if (!pokemon) return;
@@ -35,8 +32,6 @@ const Card = ({ pokemon }) => {
                 const evolutionResponse = await fetch(evolutionUrl);
                 const evolutionData = await evolutionResponse.json();
 
-                console.log("Evolution Data:", evolutionData); // Debugging
-
                 setEvolutionChain(evolutionData.chain);
 
                 const fetchEvolutionImagesAndIds = async (chain) => {
@@ -54,7 +49,6 @@ const Card = ({ pokemon }) => {
                         const { image, id } = await fetchPokemonData(node.species.name);
                         images[node.species.name] = image;
                         ids[node.species.name] = id;
-                        console.log("Processing:", node.species.name, id); // Debugging
                         for (const childNode of node.evolves_to) {
                             await processChain(childNode);
                         }
@@ -64,8 +58,6 @@ const Card = ({ pokemon }) => {
                 };
 
                 const { images, ids } = await fetchEvolutionImagesAndIds(evolutionData.chain);
-                console.log("Evolution Images:", images); // Debugging
-                console.log("Evolution IDs:", ids); // Debugging
                 setEvolutionImages(images);
                 setEvolutionIds(ids);
             } catch (error) {
@@ -171,6 +163,10 @@ const Card = ({ pokemon }) => {
         };
     }, [pokemon, chartRef]);
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+
     if (!pokemon) {
         return <div>Selecciona un Pokémon para ver los detalles</div>;
     }
@@ -219,9 +215,27 @@ const Card = ({ pokemon }) => {
     };
 
     const weaknesses = getWeaknesses(types);
+    window.addEventListener('scroll', () => {
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        if (window.scrollY > 520) {
+            scrollToTopBtn.classList.add('show');
+            scrollToTopBtn.classList.remove('hide');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+            scrollToTopBtn.classList.add('hide');
+        }
+    });
 
     return (
         <div className='card-jsx'>
+            <div id="top"></div>
+            <div className="back">
+                <a href="/">
+                    <span class="material-symbols-outlined">
+                        arrow_back_ios_new
+                    </span>
+                </a>
+            </div>
             <div className="cont-card-gen">
                 <div className="tittle-cont">
                     <h3>{pokemon.name}</h3>
@@ -291,8 +305,13 @@ const Card = ({ pokemon }) => {
                         </div>
                         
                     </div>
-                </div>
-            </div>
+                    <a href="#top" id="scrollToTopBtn">
+                        <span class="material-symbols-outlined">
+                            expand_less
+                        </span>
+                    </a>
+                </div>              
+            </div>           
         </div>
     );
 
@@ -314,7 +333,7 @@ const Card = ({ pokemon }) => {
                         </div>
                     </div>
                     {node.evolves_to.length > 0 && (
-                            <ul>
+                            <ul className='evo-ul'>
                                 {node.evolves_to.map(childNode => renderChain(childNode))}
                             </ul>
                         )}

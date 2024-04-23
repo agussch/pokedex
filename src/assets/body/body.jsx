@@ -63,8 +63,20 @@ const Body = ({ onPokemonSelect }) => {
         return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
     };
 
+    window.addEventListener('scroll', () => {
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        if (window.scrollY > 510) {
+            scrollToTopBtn.classList.add('show');
+            scrollToTopBtn.classList.remove('hide');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+            scrollToTopBtn.classList.add('hide');
+        }
+    });
+
     return (
         <section className="container">
+            <div id="top"></div>
             <div className="container-card-gen">
                 <div className="cards-cont">
                     {pokemonList.length > 0 ? (
@@ -127,7 +139,12 @@ const Body = ({ onPokemonSelect }) => {
                         </button>
                     )}
                 </div>
-            </div>    
+            </div>  
+            <a href="#top" id="scrollToTopBtn">
+                        <span class="material-symbols-outlined">
+                            expand_less
+                        </span>
+                    </a>  
         </section>
     );
 };

@@ -50,12 +50,11 @@ const Header = ({ onSearch }) => {
     return (
         <header>
             <div className="search-logo">
-                <a href="/">
-                    <h3>Agustin.dev</h3>
-                </a>
+                <span className="logoapi">
+                    <a href='https://pokeapi.co'><img src="../public/img/pokeapilogo.png" alt="PokeAPI logo" /></a>
+                </span>
             </div>
-            <div className="search">
-                
+            <div className="search">    
                 <div className="cont-search">
                     <div className="search-bar">
                         <input
@@ -80,9 +79,7 @@ const Header = ({ onSearch }) => {
                         </ul>
                     )}
                 </div>
-                <span className="logoapi">
-                    <a href='https://pokeapi.co'><img src="../public/img/pokeapilogo.png" alt="PokeAPI logo" /></a>
-                </span>
+                
             </div>
         </header>
     );

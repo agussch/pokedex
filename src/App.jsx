@@ -18,7 +18,7 @@ const App = () => {
             setSelectedPokemon(data);
             setError(null);
         } catch (error) {
-            setError('Pokemon not found!');
+            setError('');
             setSelectedPokemon(null);
         }
     };
