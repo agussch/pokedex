@@ -281,9 +281,8 @@ const Card = ({ pokemon }) => {
                         </div>
                     </div>
                     <div className="cont-dot-graphs">
-                        <canvas ref={setChartRef}></canvas>
+                            <canvas ref={setChartRef}></canvas>
                     </div>
-                    
                     <div className="weaknesses">
                         <p>Debilidades:</p>
                         <div className='pokecard-type'>
@@ -306,7 +305,7 @@ const Card = ({ pokemon }) => {
                         
                     </div>
                     <a href="#top" id="scrollToTopBtn">
-                        <span class="material-symbols-outlined">
+                        <span className="material-symbols-outlined">
                             expand_less
                         </span>
                     </a>

@@ -262,3 +262,154 @@
     display: flex;
     justify-content: center;
 }
+@media (max-width: 1100px) {
+    .pokecard-type span.type-poison{
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-fire{
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-water{
+        max-width: 90px;
+        width: 50px;
+    }
+    
+    .pokecard-type span.type-grass {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-bug{
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-normal{
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-flying {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-electric {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-ground {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-fairy {
+        max-width: 90px;
+        width: 50px;
+
+    }
+    .pokecard-type span.type-fighting {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-psychic {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-rock {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-steel {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-ice {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-ghost {
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-dragon {
+        max-width: 90px;
+        width: 50px;
+        }
+    .pokecard-type span.type-dark {
+        max-width: 90px;
+        width: 50px;
+    }
+}
+@media (max-width: 770px) {
+    .pokecard-type span.type-poison{
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-fire{
+        max-width: 90px;
+        width: 50px;
+    }
+    .pokecard-type span.type-water{
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    
+    .pokecard-type span.type-grass {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-bug{
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-normal{
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-flying {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-electric {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-ground {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-fairy {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-fighting {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-psychic {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-rock {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-steel {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-ice {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-ghost {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-dragon {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+    .pokecard-type span.type-dark {
+        font-size: 11px;
+        border-radius: 3px;
+    }
+}

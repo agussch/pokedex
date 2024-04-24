@@ -141,10 +141,10 @@ const Body = ({ onPokemonSelect }) => {
                 </div>
             </div>  
             <a href="#top" id="scrollToTopBtn">
-                        <span class="material-symbols-outlined">
-                            expand_less
-                        </span>
-                    </a>  
+                <span className="material-symbols-outlined">
+                    expand_less
+                </span>
+            </a>  
         </section>
     );
 };

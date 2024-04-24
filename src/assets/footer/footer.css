@@ -27,11 +27,6 @@ footer h3{
 .linkedin img{
     width: 40px;
 }
-@media (max-width: 900px) {
-    footer{
-        gap: 18%;
-    }
-}
 .contact-cont{
     width: 30%;
     flex-direction: column;
@@ -84,7 +79,7 @@ footer h3{
 }
 @media (max-width: 900px) {
     .contact-cont{
-        width: 85%;
+        width: 34%;
     }
     .contact-tittle h3{
         width: 90%;
@@ -96,5 +91,8 @@ footer h3{
     .contact-icons span{
         width: 3.2rem;
         height: 3.2rem;
+    }
+    footer{
+        gap: 18%;
     }
 }

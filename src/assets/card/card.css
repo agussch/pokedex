@@ -159,7 +159,6 @@
 .evolution-chain{
     display: flex;
     gap: 2rem;
-    /* margin: auto; */
 }
 .img-evolution{
     border-radius: 50%;
@@ -259,4 +258,64 @@ html {
         opacity: 1;
     }
 }
-
+@media (max-width: 1100px) {
+    .cont-card-gen{
+        width: 80%;
+    }
+    .img-peso-cont{
+        flex-direction: column;
+    }
+    .peso-cont{
+        margin: 0;
+        width: 85%;
+        margin: auto;
+    }
+    .img-cont{
+        width: 85%;
+        margin: auto;
+    }
+    .details-cont{
+        width: 100%;
+    }
+    .cont-dot-graphs{
+        width: 80%;
+        height: 100%;
+    }
+    .weaknesses{
+        flex-direction: column;
+        
+    }
+    .evolution-chain{
+        gap: 0.5rem;
+    }
+    .img-evolution img {
+        width: 100px;
+        display: flex;
+        margin: auto;
+    }
+    .evolution-info h4{
+        font-size: 10pt;
+    }
+    .chain-evolution p{
+        font-size: 12.5pt;
+    }
+}
+@media (max-width: 700px) {
+    .chain-evolution ul{
+        padding: 0;
+    }
+    .evolution-chain{
+        gap: 0.5rem;
+    }
+    .img-evolution{
+        padding: 0.5rem;    }
+    .evolution-info{
+        gap: 5px;
+    }
+    .evolution-info h4{
+        font-size: 8pt;
+    }
+    .chain-evolution p{
+        font-size: 10.5pt;
+    }
+}
