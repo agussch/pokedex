@@ -231,7 +231,7 @@ const Card = ({ pokemon }) => {
             <div id="top"></div>
             <div className="back">
                 <a href="https://agustinsch.dev/pokedex/">
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                         arrow_back_ios_new
                     </span>
                 </a>
@@ -293,17 +293,18 @@ const Card = ({ pokemon }) => {
                             ))}
                         </div>
                     </div>
-                    <div className='chain-evolution'>
-                        <p>Cadena de evolución:</p>
-                        <div className="back-evo">
-                            {evolutionChain && (
-                                <ul>
-                                    {renderEvolutionChain(evolutionChain)}
-                                </ul>
-                            )}
+                    {evolutionImages && Object.keys(evolutionImages).length > 0 && (
+                        <div className='chain-evolution'>
+                            <p>Cadena de evolución:</p>
+                            <div className="back-evo">
+                                {evolutionChain && (
+                                    <ul>
+                                        {renderEvolutionChain(evolutionChain)}
+                                    </ul>
+                                )}
+                            </div>
                         </div>
-                        
-                    </div>
+                    )}
                     <a href="#top" id="scrollToTopBtn">
                         <span className="material-symbols-outlined">
                             expand_less
@@ -327,7 +328,7 @@ const Card = ({ pokemon }) => {
                             {evolutionIds[node.species.name] ? (
                                 <p className='evo-id'>N.°{evolutionIds[node.species.name].toString().padStart(4, '0')}</p>
                             ) : (
-                                <p>No hay ID de evolución disponible para este Pokémon</p>
+                                <p className='error-id'>No hay ID disponible</p>
                             )}                      
                         </div>
                     </div>

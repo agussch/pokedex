@@ -141,6 +141,7 @@
     margin: auto;
     flex-direction: column;
     gap: 0.8rem;
+    padding-bottom: 0.5rem;
 }
 .weaknesses p{
     font-size: 16.5pt;
@@ -283,7 +284,6 @@ html {
     }
     .weaknesses{
         flex-direction: column;
-        
     }
     .evolution-chain{
         gap: 0.5rem;
