@@ -80,7 +80,7 @@ footer p{
 .footer-cont {
     flex-direction: row;
     display: flex;
-    gap: 30%;
+    gap: 50%;
 }
 @media (max-width: 900px) {
     .contact-cont{
