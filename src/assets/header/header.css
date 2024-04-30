@@ -110,4 +110,27 @@ header {
     .search-logo{
         gap: 1rem;
     }
+    .logoapi img{
+        width: 90px;
+    }
+}
+@media (max-width: 500px) {
+    header{
+        padding: 0.3rem;
+    }
+    .search{
+        width: 60%;
+    }
+    .search-logo{
+        width: 40%;
+    }
+    .search-input{
+        width: 110px;
+    }
+    .search-btn{
+        width: 65px;
+    }
+    .logoapi img{
+        width: 85px;
+    }
 }

@@ -51,9 +51,9 @@ const Header = ({ onSearch }) => {
         <header>
             <div className="search-logo">
                 <span className="logoapi">
-                    <a href='https://pokeapi.co'><img src="../public/img/pokeapilogo.png" alt="PokeAPI logo" /></a>
+                    <a href='https://pokeapi.co'><img src="./img/pokeapilogo.png" alt="PokeAPI logo" /></a>
                 </span>
-                <a href="/" className='home-a'>
+                <a href="https://agustinsch.dev/pokedex/" className='home-a'>
                     <span className="material-symbols-outlined">
                         home
                     </span>

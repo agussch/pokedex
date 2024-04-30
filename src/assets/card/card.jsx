@@ -230,7 +230,7 @@ const Card = ({ pokemon }) => {
         <div className='card-jsx'>
             <div id="top"></div>
             <div className="back">
-                <a href="/">
+                <a href="https://agustinsch.dev/pokedex/">
                     <span class="material-symbols-outlined">
                         arrow_back_ios_new
                     </span>
@@ -258,8 +258,8 @@ const Card = ({ pokemon }) => {
                                     <div className='bot-flex'>
                                         <p>Género:</p>
                                         <span>
-                                            <img src='../../../public/img/femenino-logo.png' alt="Femenino"/>
-                                            <img src='../../../public/img/masculino-logo.png' alt="Masculino"/>
+                                            <img src='./img/femenino-logo.png' alt="Femenino"/>
+                                            <img src='./img/masculino-logo.png' alt="Masculino"/>
                                         </span>
                                     </div>
                                 </div>

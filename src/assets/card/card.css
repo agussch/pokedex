@@ -22,7 +22,7 @@
     display: flex;
     margin: auto;
     width: 85%;
-    background-image: url(../../../public/img/backpoke2.png);
+    background-image: url(./img/backpoke2.png);
     background-color: #fff;
     text-transform: capitalize;
 }
@@ -297,7 +297,7 @@ html {
         font-size: 10pt;
     }
     .chain-evolution p{
-        font-size: 12.5pt;
+        font-size: 16.5pt;
     }
 }
 @media (max-width: 700px) {
@@ -316,6 +316,60 @@ html {
         font-size: 8pt;
     }
     .chain-evolution p{
-        font-size: 10.5pt;
+        font-size: 16.5pt;
+    }
+}
+@media (max-width: 450px) {
+    .card-jsx{
+        width: 92%;
+    }
+    .cont-card-gen {
+        width: 100%;
+    }
+    .details-cont{
+        width: 100%;
+    }
+    .img-peso-cont{
+        width: 100%;
+    }
+    .cont-dot-graphs{
+        width: 100%;
+    }
+    .types-cont p{
+        font-size: 16.5pt;
+    }
+    .pokecard-type{
+        display: grid;
+        grid-template-columns: repeat(2, 0fr);
+        gap: 0.3rem;
+        justify-content: center;
+    }
+    .chain-evolution{
+        width: 100%;
+    }
+    .img-evolution img{
+        width: 90px;
+    }
+    .back{
+        top: 20px;
+        left: 0px;
+    }
+    .evolution-info p {
+        font-size: 8pt;
+    }
+    .weaknesses{
+        width: 100%;
+    }
+
+}
+@media (max-width: 400px) {
+    .img-evolution img{
+        width: 80px;
+    }
+    .evolution-info p {
+        font-size: 7.5pt;
+    }
+    .back-evo {
+        padding: 1rem 0;
     }
 }

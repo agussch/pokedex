@@ -12,7 +12,7 @@ footer{
     align-items: center;
     position: relative;
 }
-footer h3{
+footer p{
     width: 30%;
     font-size: 1.1rem;
     color: #2d2e32;
@@ -77,6 +77,11 @@ footer h3{
 .contact-info a:hover, .contact-info p:hover {
     color:#147efb;
 }
+.footer-cont {
+    flex-direction: row;
+    display: flex;
+    gap: 30%;
+}
 @media (max-width: 900px) {
     .contact-cont{
         width: 34%;
@@ -94,5 +99,30 @@ footer h3{
     }
     footer{
         gap: 18%;
+    }
+    
+}
+@media (max-width: 450px) {
+    .footer-cont{
+        display: flex;
+        gap: 40%;
+        width: 22rem;
+        justify-content: center;
+        margin: auto;
+    }
+    .copyr{
+        width: 24rem !important;
+        text-align: center;
+    }
+    .top-footer {
+        gap: 1rem;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .pagination {
+        width: auto;
+        padding: 26px 0;
     }
 }
