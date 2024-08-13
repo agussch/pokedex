@@ -16,7 +16,7 @@ const Body = ({ onPokemonSelect }) => {
                 const offset = (currentPage - 1) * pokemonsPerPage;
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${pokemonsPerPage}`);
                 if (!response.ok) {
-                    throw new Error('Failed to fetch Pokémon data');
+                    throw new Error('');
                 }
                 const data = await response.json();
                 const promises = data.results.map(async (pokemon) => {
@@ -30,7 +30,7 @@ const Body = ({ onPokemonSelect }) => {
                 setPokemonList(pokemonData);
             } catch (error) {
                 console.error('Error fetching Pokémon data:', error);
-                setError('Failed to fetch Pokémon data');
+                setError('');
             }
         };
 
@@ -105,7 +105,7 @@ const Body = ({ onPokemonSelect }) => {
                             );
                         })
                     ) : (
-                        <p>No Pokémon data available</p>
+                        <p></p>
                     )}
                     {error && <p>{error}</p>}
                 </div>
