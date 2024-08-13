@@ -66,7 +66,7 @@ const Header = ({ onSearch }) => {
                             type="text"
                             value={searchTerm}
                             onChange={handleSearchChange}
-                            placeholder="Buscar Pokémon"
+                            placeholder="Buscar Pokémones"
                             className="search-input"
                             onFocus={() => setShowSuggestions(true)}
                         />
